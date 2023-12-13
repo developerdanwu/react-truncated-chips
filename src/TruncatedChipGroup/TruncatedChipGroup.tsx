@@ -1,29 +1,14 @@
 import React, {
+  forwardRef,
+  ReactElement,
+  Ref,
+  useLayoutEffect,
   useRef,
   useState,
-  useLayoutEffect,
-  flushSync,
-  useEffect,
-  forwardRef,
 } from 'react';
-import { useForkRef } from './utils';
-
-export interface TruncatedChipGroupProps<TChildElement> {
-  renderOverflowIndicator?: (
-    remainingChildren: Array<TChildElement>,
-    overflowCount: number,
-  ) => React.ReactNode;
-  children?: React.ReactNode;
-  /**
-   * spacing between elements. this is in pixels
-   * */
-  spacing?: number;
-  /**
-   * offset from the right side of the container. This should be set to a little bigger than the
-   * maximum size of the overflow indicator to prevent clipping. this is in pixels
-   * */
-  containerBoundsXOffset?: number;
-}
+import { useForkRef } from '../utils';
+import { flushSync } from 'react-dom';
+import { TruncatedChipGroupProps } from './TruncatedChipGroupTypes';
 
 function getVisibleTagCount({
   containerBounds,
@@ -68,8 +53,8 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
 ) {
   const {
     children,
-    spacing = 1,
-    containerBoundsXOffset = 5,
+    spacing = 8,
+    containerBoundsXOffset = 40,
     renderOverflowIndicator = (_, count) => <div>+{count}</div>,
     ...others
   } = props;
@@ -80,7 +65,6 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
   const childrenArray = React.Children.toArray(children);
   const reversedChildren = [...childrenArray].reverse();
   const [visibleTagCount, setVisibleTagCount] = useState(childrenArray.length);
-
   useLayoutEffect(() => {
     if (itemList.current) {
       const newVisibleTagCount = getVisibleTagCount({
@@ -134,10 +118,12 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
         alignItems: 'center',
       }}
       ref={forkedRef}
+      {...props}
     >
       {reversedChildren.slice(0, visibleTagCount)}
       {visibleTagCount < reversedChildren.length &&
         renderOverflowIndicator(
+          // @ts-expect-error incorrect type inferrance
           reversedChildren.slice(visibleTagCount),
           reversedChildren.length - visibleTagCount,
         )}
@@ -146,11 +132,15 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
           style={{
             display: 'flex',
             height: '100%',
-            position: 'relative',
             width: '100%',
             overflow: 'hidden',
             gap: spacing,
             alignItems: 'center',
+            position: 'absolute',
+            pointerEvents: 'none',
+            left: 0,
+            top: 0,
+            visibility: 'hidden',
           }}
           ref={itemList}
         />,
@@ -160,20 +150,16 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
               return null;
             }
             return React.cloneElement(child, {
+              // @ts-expect-error incorrect type inferrance
               ref: (_ref: HTMLElement) => {
                 shadowItemList.current[index] = _ref;
               },
             });
           }),
-          style: {
-            position: 'absolute',
-            pointerEvents: 'none',
-            visibility: 'hidden',
-            left: 0,
-            top: 0,
-          },
         },
       )}
     </div>
   );
-});
+}) as <TChildElement>(
+  p: TruncatedChipGroupProps<TChildElement> & { ref?: Ref<HTMLDivElement> },
+) => ReactElement;
