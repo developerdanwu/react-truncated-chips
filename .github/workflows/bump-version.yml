@@ -17,9 +17,6 @@ jobs:
           node-version: 18
           check-latest: true
           cache: 'yarn'
-      - name: Enable corepack
-        run: |
-          corepack enable
       - name: Install Dependencies
         run: yarn install --immutable --immutable-cache --check-cache
       - name: Create Release Pull Request
