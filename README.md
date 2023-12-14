@@ -1,10 +1,11 @@
 # react-truncated-chips
 
-A headless component to implement a truncated chips experience for users! `Pull Down to Refresh` 
-Super simple to integrate and easy to use.
+A headless component to implement a truncated chips based on parent container/screen size for users!
+Super powerful UI experience but simple to integrate and easy to use.
+
+![](assets/chips-demo.gif)
 
 ## Install
-
 ```bash
   npm install --save react-truncated-chips
 
@@ -12,3 +13,6 @@ Super simple to integrate and easy to use.
 
   yarn add react-truncated-chips
 ```
+
+## Documentation
+Please visit this 
