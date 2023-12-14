@@ -9,6 +9,7 @@ import React, {
 import { useForkRef } from '../utils';
 import { flushSync } from 'react-dom';
 import { TruncatedChipGroupProps } from './TruncatedChipGroupTypes';
+import PropTypes from 'prop-types';
 
 function getVisibleTagCount({
   containerBounds,
@@ -162,6 +163,16 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
       )}
     </div>
   );
-}) as <TChildElement>(
-  p: TruncatedChipGroupProps<TChildElement> & { ref?: Ref<HTMLDivElement> },
-) => ReactElement;
+}) as (<TChildElement>(
+  p: TruncatedChipGroupProps<TChildElement> & {
+    ref?: Ref<HTMLDivElement>;
+  },
+) => ReactElement) & { propTypes: any };
+
+TruncatedChipGroup.propTypes = {
+  children: PropTypes.node,
+  spacing: PropTypes.number,
+  containerBoundsXOffset: PropTypes.number,
+  renderOverflowIndicator: PropTypes.func,
+  direction: PropTypes.oneOf(['row', 'row-reverse']),
+};

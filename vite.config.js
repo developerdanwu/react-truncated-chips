@@ -1,8 +1,10 @@
-import { resolve } from 'path';
+import { extname, relative, resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import pkg from './package.json';
+import { fileURLToPath } from 'node:url';
+import { glob } from 'glob';
 
 export default defineConfig({
   plugins: [
@@ -19,7 +21,7 @@ export default defineConfig({
     },
   },
   build: {
-    minify: true,
+    minify: false,
     lib: {
       entry: [resolve(__dirname, 'src/index.ts')],
       name: 'react-truncated-chips',
@@ -32,9 +34,25 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'src/index.ts'),
-      },
+      input: Object.fromEntries(
+        glob
+          .sync('src/**/*.{ts,tsx}', {
+            ignore: [
+              'src/**/*.stories.{tsx,mdx,ts}',
+              'src/**/*.d.ts',
+              '**/*/examples/**',
+              'src/stories/**',
+            ],
+          })
+          .map((file) => [
+            // The name of the entry point
+            // lib/nested/foo.ts becomes nested/foo
+            relative('src', file.slice(0, file.length - extname(file).length)),
+            // The absolute path to the entry file
+            // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+            fileURLToPath(new URL(file, import.meta.url)),
+          ]),
+      ),
       external: [
         ...Object.keys(pkg.peerDependencies),
         ...Object.keys(pkg.dependencies),
