@@ -2,6 +2,18 @@
 A headless component to implement a truncated chips based on parent container/screen size for users!
 Small bundle size of 2.1kb but can create super powerful UI experiences with a simple-to-use API.
 
+There are several components that are similar that you may want to check out:
+- [react-truncate-markup](https://github.com/patrik-piskay/react-truncate-markup)
+- [react-truncate](https://github.com/pablosichert/react-truncate) - text truncation only
+- [react-text-truncate](https://github.com/ShinyChang/React-Text-Truncate) - text truncation only
+
+## Features:  
+✅ reverse rendering list items  
+✅ works with any react elements that accept a ref as children  
+✅ custom overflow indicator  
+✅ custom spacing between children components
+✅ responsive to parent container/screen size
+
 ![](assets/chips-demo.gif)
 
 Some similar solutions already exists to achieve this sort of UI behaviour, but I couldn't find an actively maintained package
