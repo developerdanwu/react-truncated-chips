@@ -5,6 +5,7 @@ import BasicTruncatedChipGroup from './examples/BasicTruncatedChipGroup.tsx?raw'
 import TruncatedChipsWithCustomSpacingExample from './examples/TruncatedChipsWithCustomSpacing.tsx?raw';
 import TruncatedChipGroupCustomOverflowIndicator from './examples/TruncatedChipGroupCustomOverflowIndicator.tsx?raw';
 import TruncatedChipsDirectionExample from './examples/TruncatedChipsDirection.tsx?raw';
+import DynamicListItemsExample from './examples/DynamicListItems.tsx?raw';
 
 const meta = {
   title: 'TruncatedChipGroup',
@@ -37,6 +38,13 @@ export const TruncatedChipsWithCustomOverflowIndicator = createLiveEditStory({
 
 export const ReverseDirectionOfChips = createLiveEditStory({
   code: TruncatedChipsDirectionExample,
+  availableImports: {
+    'react-truncated-chips': ReactTruncatedChips,
+  },
+});
+
+export const DynamicListItems = createLiveEditStory({
+  code: DynamicListItemsExample,
   availableImports: {
     'react-truncated-chips': ReactTruncatedChips,
   },
