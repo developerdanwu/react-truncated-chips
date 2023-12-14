@@ -1,6 +1,6 @@
 # react-truncated-chips
 A headless component to implement a truncated chips based on parent container/screen size for users!
-Super powerful UI experience but simple to integrate and easy to use.
+Small bundle size of 2.1kb but can create super powerful UI experiences with a simple-to-use API.
 
 ![](assets/chips-demo.gif)
 
