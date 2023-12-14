@@ -1,5 +1,11 @@
 # react-truncated-chips
 
+## 1.1.3
+
+### Patch Changes
+
+- 645c6ca: docs: update readme
+
 ## 1.1.2
 
 ### Patch Changes
