@@ -27,6 +27,19 @@
       "optional": true
     }
   },
+  "keywords": [
+    "react",
+    "react-component",
+    "truncate",
+    "ellipsis",
+    "multiline",
+    "markup",
+    "jsx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/developerdanwu/react-truncated-chips"
+  },
   "dependencies": {
     "prop-types": "^15.8.1"
   },
