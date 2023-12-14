@@ -4,9 +4,10 @@ import { TruncatedChipGroup } from './TruncatedChipGroup';
 import BasicTruncatedChipGroup from './examples/BasicTruncatedChipGroup.tsx?raw';
 import TruncatedChipsWithCustomSpacingExample from './examples/TruncatedChipsWithCustomSpacing.tsx?raw';
 import TruncatedChipGroupCustomOverflowIndicator from './examples/TruncatedChipGroupCustomOverflowIndicator.tsx?raw';
+import TruncatedChipsDirectionExample from './examples/TruncatedChipsDirection.tsx?raw';
 
 const meta = {
-  title: 'atoms/TruncatedChipGroup',
+  title: 'TruncatedChipGroup',
   component: TruncatedChipGroup,
   parameters: {},
 };
@@ -29,6 +30,13 @@ export const TruncatedChipsWithCustomSpacing = createLiveEditStory({
 
 export const TruncatedChipsWithCustomOverflowIndicator = createLiveEditStory({
   code: TruncatedChipGroupCustomOverflowIndicator,
+  availableImports: {
+    'react-truncated-chips': ReactTruncatedChips,
+  },
+});
+
+export const ReverseDirectionOfChips = createLiveEditStory({
+  code: TruncatedChipsDirectionExample,
   availableImports: {
     'react-truncated-chips': ReactTruncatedChips,
   },

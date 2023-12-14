@@ -17,14 +17,16 @@ const DummyChip = forwardRef<HTMLDivElement, { children?: React.ReactNode }>(
   },
 );
 
-export default function TruncatedChipsWithCustomSpacing() {
+export default function TruncatedChipsDirection() {
   return (
-    <TruncatedChipGroup spacing={50}>
-      {Array(90)
-        .fill(0)
-        .map((_, idx) => {
-          return <DummyChip key={idx}>chip{idx + 1}</DummyChip>;
-        })}
-    </TruncatedChipGroup>
+    <div>
+      <TruncatedChipGroup direction={'row-reverse'}>
+        {Array(90)
+          .fill(0)
+          .map((_, idx) => {
+            return <DummyChip key={idx}>chip{idx + 1}</DummyChip>;
+          })}
+      </TruncatedChipGroup>
+    </div>
   );
 }

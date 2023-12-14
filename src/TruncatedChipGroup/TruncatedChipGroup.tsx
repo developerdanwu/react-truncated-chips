@@ -52,6 +52,7 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
   ref: React.Ref<HTMLDivElement>,
 ) {
   const {
+    direction = 'row',
     children,
     spacing = 8,
     containerBoundsXOffset = 40,
@@ -63,7 +64,8 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
   const forkedRef = useForkRef(itemList, ref);
   const shadowItemList = useRef<HTMLElement[]>([]);
   const childrenArray = React.Children.toArray(children);
-  const reversedChildren = [...childrenArray].reverse();
+  const reversedChildren =
+    direction === 'row' ? childrenArray : [...childrenArray].reverse();
   const [visibleTagCount, setVisibleTagCount] = useState(childrenArray.length);
   useLayoutEffect(() => {
     if (itemList.current) {

@@ -2,6 +2,11 @@ import React from 'react';
 
 export interface TruncatedChipGroupProps<TChildElement> {
   /**
+   * direction in which chips are rendered
+   * @default row
+   * */
+  direction?: 'row' | 'row-reverse';
+  /**
    * custom overflow indicator
    * @default <div>+{count}</div>
    * */
@@ -9,6 +14,9 @@ export interface TruncatedChipGroupProps<TChildElement> {
     remainingChildren: Array<TChildElement>,
     overflowCount: number,
   ) => React.ReactNode;
+  /**
+   * each child must be able to take a ref. This is used to calculate the size of the child elements
+   * */
   children: React.ReactNode;
   /**
    * spacing between elements. this is in pixels

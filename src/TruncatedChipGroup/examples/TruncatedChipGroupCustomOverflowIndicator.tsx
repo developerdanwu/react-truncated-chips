@@ -27,7 +27,7 @@ export default function TruncatedChipGroupCustomOverflowIndicator() {
       <TruncatedChipGroup<
         React.ReactElement<{ children?: React.ReactNode }, typeof DummyChip>
       >
-        containerBoundsXOffset={150}
+        containerBoundsXOffset={155}
         renderOverflowIndicator={(remainingChildren, count) => {
           return (
             <>
@@ -38,7 +38,6 @@ export default function TruncatedChipGroupCustomOverflowIndicator() {
                   );
                 }}
                 style={{
-                  width: '100px',
                   cursor: 'pointer',
                 }}
               >
