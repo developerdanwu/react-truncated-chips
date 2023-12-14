@@ -15,4 +15,4 @@ Super powerful UI experience but simple to integrate and easy to use.
 ```
 
 ## Documentation
-Please visit this 
+Please visit see [here](https://react-truncated-chips.vercel.app)
