@@ -12,7 +12,6 @@ that fit all of my needs. Here are several components that inspired this that yo
 
 ## Features:  
 ✅ reverse rendering children  
-![](assets/chip-demo-reverse.gif)  
 ✅ works with any react elements that accept a ref as children  
 ✅ custom overflow indicator  
 ✅ custom spacing between children components  
