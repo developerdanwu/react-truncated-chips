@@ -1,6 +1,6 @@
 {
   "name": "react-truncated-chips",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -71,6 +71,8 @@
     "vite-plugin-dts": "^3.6.1",
     "yargs": "^17.7.2"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "packageManager": "yarn@3.6.4"
 }
