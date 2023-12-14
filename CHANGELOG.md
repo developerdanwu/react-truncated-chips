@@ -1,5 +1,11 @@
 # react-truncated-chips
 
+## 1.1.2
+
+### Patch Changes
+
+- 1de9592: chore: add keywords to package json
+
 ## 1.1.1
 
 ### Patch Changes
