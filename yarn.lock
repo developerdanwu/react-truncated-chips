@@ -4823,7 +4823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.2.45":
   version: 18.2.45
   resolution: "@types/react@npm:18.2.45"
   dependencies:
@@ -12053,6 +12053,7 @@ __metadata:
     "@storybook/testing-library": ^0.2.2
     "@storybook/theming": ^7.6.3
     "@types/fs-extra": ^11.0.4
+    "@types/react": ^18.2.45
     "@types/react-dom": ^18.2.17
     "@vitejs/plugin-react": ^4.1.0
     eslint: 8.20.0
