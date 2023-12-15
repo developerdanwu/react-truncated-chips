@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Ref} from 'react';
 
-export interface TruncatedChipGroupProps<TChildElement> {
+export interface TruncatedChipGroupProps<TChildElement> extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>  {
+  ref?: Ref<HTMLDivElement>;
   /**
    * direction in which chips are rendered
    * @default row

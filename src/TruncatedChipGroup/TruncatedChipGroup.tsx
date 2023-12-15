@@ -53,6 +53,7 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
   ref: React.Ref<HTMLDivElement>,
 ) {
   const {
+    style,
     direction = 'row',
     children,
     spacing = 8,
@@ -119,9 +120,10 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
         overflow: 'hidden',
         gap: spacing,
         alignItems: 'center',
+      ...style
       }}
       ref={forkedRef}
-      {...props}
+      {...others}
     >
       {reversedChildren.slice(0, visibleTagCount)}
       {visibleTagCount < reversedChildren.length &&
@@ -164,9 +166,7 @@ export const TruncatedChipGroup = forwardRef(function TruncatedChipGroup<
     </div>
   );
 }) as (<TChildElement>(
-  p: TruncatedChipGroupProps<TChildElement> & {
-    ref?: Ref<HTMLDivElement>;
-  },
+  props: TruncatedChipGroupProps<TChildElement>,
 ) => ReactElement) & { propTypes: any };
 
 TruncatedChipGroup.propTypes = {
