@@ -1,5 +1,11 @@
 # react-truncated-chips
 
+## 1.1.4
+
+### Patch Changes
+
+- 93b8aeb: fix: typescript typings
+
 ## 1.1.3
 
 ### Patch Changes
